@@ -71,7 +71,7 @@ type ClosedBy struct {
 	WebURL    string `json:"web_url"`
 }
 
-var glURL, glToken, rocketURL, rocketUser, rocketPass, rocketMsg, rocketChannel *string
+var glURL, glToken, rocketURL, rocketUser, rocketPass, rocketChannel *string
 var glGroupId *int
 
 var client *http.Client
@@ -86,7 +86,6 @@ func main() {
 	rocketUser = flag.String("user", "", "RocketChat User")
 	rocketPass = flag.String("pass", "", "RocketChat Password")
 	rocketChannel = flag.String("channel", "", "RocketChat channel to post")
-	rocketMsg = flag.String("msg", "", "RocketChat message that will be sent to the channel")
 	flag.Parse()
 
 	client = &http.Client{}
@@ -198,7 +197,7 @@ func closeMilestone(mlID int) {
 	if closeMLResponse.State == "closed" {
 		log.Printf("Close milestone: %v", closeMLResponse.Title)
 		opt := gorocket.Message{
-			Text:    fmt.Sprintf(*rocketMsg, closeMLResponse.Title),
+			Text:    fmt.Sprintf(":white_check_mark: Milestone \"%v\" was closed", closeMLResponse.Title),
 			Channel: *rocketChannel,
 		}
 		hresp, err := rocketClient.PostMessage(&opt)

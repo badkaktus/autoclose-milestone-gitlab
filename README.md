@@ -14,7 +14,7 @@ Example with Rocket.Chat
 
 ```
 go build -o autoclose main.go
-./autoclose -gitlaburl http://gitlab.dev -token aaaaBBBBcccc1111 -group 10 -rocketurl https://rocket.company.io -user bot -pass botpass -msg "Milestone \"%v\" was closed" -channel "#rocketchannel"
+./autoclose -gitlaburl http://gitlab.dev -token aaaaBBBBcccc1111 -group 10 -rocketurl https://rocket.company.io -user bot -pass botpass -channel "#rocketchannel"
 ```
 
 Thats all.
